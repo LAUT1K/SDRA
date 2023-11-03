@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temporizador Regresivo</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="countdown">
+        <h1>Temporizador Regresivo</h1>
+        <div id="timer"></div>
+    </div>
+    <script>
+
+     // Definir el tiempo inicial en segundos (5 minutos = 300 segundos)
+const initialTime = 300;
+
+function updateTimer() {
+    const timerElement = document.getElementById("timer");
+    if (initialTime > 0) {
+        const minutes = Math.floor(initialTime / 60);
+        const seconds = initialTime % 60;
+        timerElement.innerHTML = `${minutes}m ${seconds}s`;
+        initialTime--;
+    } else {
+        timerElement.innerHTML = "Tiempo expirado";
+        // Puedes agregar acciones adicionales una vez que el tiempo ha expirado
+    }
+}
+
+// Actualizar el temporizador cada segundo
+setInterval(updateTimer, 1000);
+
+// Inicializar el temporizador al cargar la página
+updateTimer();
+    </script>
+</body>
+</html>
